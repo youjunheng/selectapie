@@ -17,3 +17,17 @@ def cover_matrix(k_set, s_set):
         for j in range(col):
             matrix[i][j] = superset_check(k_set[i], s_set[j])
     return matrix
+
+# given a matrix, check if its every row's hadamard product is 0
+def check_hadamard(matrix):
+    # draw a column
+    column = [matrix[:, i] for i in range(matrix.shape[1])]
+    
+    # calculate the hadamard product of every column
+    result = np.multiply.reduce(column)
+    
+    # if the result is 0, then return True
+    if np.count_nonzero(result) == 0:
+        return True
+    else:
+        return False
