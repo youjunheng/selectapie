@@ -19,12 +19,18 @@ def cover_matrix(k_set, s_set):
     return matrix
 
 # given a matrix, check if its every row's hadamard product is 0
-def check_hadamard(matrix):
-    # draw a column
-    column = [matrix[:, i] for i in range(matrix.shape[1])]
-    
+def jls_extract_def(matrix):
     # calculate the hadamard product of every column
-    result = np.multiply.reduce(column)
+    for i in range(matrix.shape[1]):
+        column = matrix[:, i] 
+        result = np.multiply(column)
+    return result
+
+
+def check_hadamard(matrix):
+    result = np.ones(matrix.shape[0], 1)
+
+    result = jls_extract_def(matrix)
     
     # if the result is 0, then return True
     if np.count_nonzero(result) == 0:
