@@ -1,3 +1,5 @@
+#主函数
+
 #import modules
 import random
 

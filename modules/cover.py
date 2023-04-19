@@ -1,3 +1,4 @@
+# 辅助，判定覆盖矩阵是否满足条件
 import numpy as np
 
 # if k is superset of s then 0, else 1 (for convenient of Hadamard product)
@@ -8,6 +9,7 @@ def superset_check(k, s):
         return 1
 
 # use K-set and S-set to generate a matrix
+# 生成覆盖矩阵
 def cover_matrix(k_set, s_set):
     row = len(k_set)
     col = len(s_set)
@@ -19,6 +21,7 @@ def cover_matrix(k_set, s_set):
     return matrix
 
 # given a matrix, check if its every row's hadamard product is 0
+# 判定覆盖矩阵是否全0
 def check_hadamard(matrix):
     result = np.ones((1, matrix.shape[1]))
 
