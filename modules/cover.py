@@ -1,4 +1,5 @@
-# 辅助，判定覆盖矩阵是否满足条件
+# 辅助包，判定覆盖矩阵是否满足条件，已测试
+
 import numpy as np
 
 # if k is superset of s then 0, else 1 (for convenient of Hadamard product)
