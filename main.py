@@ -51,5 +51,9 @@ def selecttion():
     u_set.clear()
     for i in range(1, 54):
         u_set.add(i)
-
-
+    
+    #randomly select m samples from union set
+    m_set = set(random.sample(u_set, m))
+    #randomly select n samples from m set
+    n_set = set(random.sample(m_set, n))
+    print("n set: ", n_set)
