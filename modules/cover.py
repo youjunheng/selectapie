@@ -20,12 +20,13 @@ def cover_matrix(k_set, s_set):
 
 # given a matrix, check if its every row's hadamard product is 0
 def check_hadamard(matrix):
-    result = np.ones((matrix.shape[0], int(1)))
+    result = np.ones((1, matrix.shape[1]))
 
-    # calculate the hadamard product of every column
-    for i in range(matrix.shape[1]):
-        column = matrix[:, i] 
-        result = np.multiply(result, column)
+    # calculate the hadamard product of every line
+    for i in range(matrix.shape[0]):
+        result = np.multiply(result, matrix[i])
+    
+    # return result
     
     # if the result is 0, then return True
     if np.count_nonzero(result) == 0:
@@ -40,7 +41,9 @@ def test():
     matrix = cover_matrix(k_set, s_set)
     print(matrix)
     print(check_hadamard(matrix))
-    matrix = np.ones((3, 4))
+    matrix = np.matrix([[1, 0, 1, 0], 
+                        [0, 1, 1, 1], 
+                        [1, 0, 1, 0]])
     print(check_hadamard(matrix))
 
 if __name__ == "__main__":
